@@ -11,11 +11,12 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 use OwenIt\Auditing\Contracts\Auditable;
-use \OwenIt\Auditing\Auditable as AuditingAuditable;
+#use \OwenIt\Auditing\Auditable as AuditingAuditable;
 
 class User extends Authenticatable implements Auditable
 {
-    use HasFactory, Notifiable, HasRoles, AuditingAuditable;
+    use \OwenIt\Auditing\Auditable;
+    use HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.

@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         if (!User::where('email', 'dev@jitte.com.br')->first()) {
             $root = User::create([
-                'name' => 'Root',
+                'name' => 'root',
                 'email' => 'dev@jitte.com.br',
                 'password' => Hash::make('op5mnyuf', ['rounds' => 12]),
             ]);
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
 
         if (!User::where('email', 'admin@jitte.com.br')->first()) {
             $admin = User::create([
-                'name' => 'Admin',
+                'name' => 'admin',
                 'email' => 'admin@jitte.com.br',
                 'password' => Hash::make('admin', ['rounds' => 12]),
             ]);
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
 
         if (!User::where('email', 'operator@jitte.com.br')->first()) {
             $operator = User::create([
-                'name' => 'Operator',
+                'name' => 'operator',
                 'email' => 'operator@jitte.com.br',
                 'password' => Hash::make('operator', ['rounds' => 12]),
             ]);

@@ -24,6 +24,18 @@ class RoleSeeder extends Seeder
                 'name'=> 'admin',
                 'order_roles' => 2,
             ]);
+
+            $admin->givePermissionTo([
+                'home-index',
+                'profile-edit',
+                'role-index',
+                'role-update',
+                'user-index',
+                'user-create',
+                'user-show',
+                'user-edit',
+                'user-destroy',
+            ]);
         } else {
             $admin = Role::where('name', 'admin')->first();
         }
@@ -34,32 +46,19 @@ class RoleSeeder extends Seeder
                 'order_roles' => 3,
             ]);
 
+            $operator->givePermissionTo([
+                'home-index',
+                'profile-edit',
+                //'role-index',
+                //'role-update',
+                //'user-index',
+                //'user-create',
+                //'user-show',
+                //'user-edit',
+                //'user-destroy',
+            ]);
         } else {
             $operator = Role::where('name', 'operator')->first();
         }
-
-        $admin->givePermissionTo([
-            'home-index',
-            'profile-edit',
-            'role-index',
-            'role-update',
-            'user-index',
-            'user-create',
-            'user-show',
-            'user-edit',
-            'user-destroy',
-        ]);
-
-        $operator->givePermissionTo([
-            'home-index',
-            'profile-edit',
-            //'role-index',
-            //'role-update',
-            //'user-index',
-            //'user-create',
-            //'user-show',
-            //'user-edit',
-            //'user-destroy',
-        ]);
     }
 }

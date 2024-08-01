@@ -33,7 +33,7 @@
                         <label for="password">Senha</label>
                     </div>
                     <div class="d-flex justify-content-end mb-2">
-                        <button type="submit" class="bg-gradient btn btn-dark">Gravar</button>
+                        <button type="submit" class="bg-gradient btn btn-primary">Gravar</button>
                     </div>
                 </form>
             </div>
