@@ -73,12 +73,44 @@ class RoleController extends Controller
      */
     public function update(RoleRequest $request, Role $role)
     {
-        $role->update([
-            'name' => $request->name,
-            'guard_name' => $request->guard_name,
-            'order_roles' => $request->order_roles,
-        ]);
+        $updated = false;
+        $validated = $request->validated();
 
-        return redirect()->route('role.edit', ['role' => $role->id])->with('success', 'Atualização realizada com sucesso');
+        DB::beginTransaction();
+        try {
+            $changes = [];
+
+            if ($role->name != $validated['name']) {
+                $changes['name'] = $validated['name'];
+                $updated = true;
+            }
+
+            if ($role->guard_name != $validated['guard_name']) {
+                $changes['guard_name'] = $validated['guard_name'];
+                $updated = true;
+            }
+
+            if ($role->order_roles != $validated['order_roles']) {
+                $changes['order_roles'] = $validated['order_roles'];
+                $updated = true;
+            }
+
+            $role->update(
+                $changes
+            );
+
+            DB::commit();
+
+            if (!$updated) {
+                return redirect()->route('role.edit', ['role' => $role->id])->with('info', 'Nenhuma alteração realizada!');
+            } else {
+                return redirect()->route('role.edit', ['role' => $role->id])->with('success', 'Atualização realizada com sucesso');
+            }
+        } catch (Exception $e) {
+            Log::error('Nível de acesso não editado.', ['error' => $e->getMessage()]);
+            DB::rollBack();
+
+            return back()->withInput()->with('error', 'Nível de acesso não editado!');
+        }
     }
 }
