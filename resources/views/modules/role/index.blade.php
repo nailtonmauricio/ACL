@@ -56,7 +56,7 @@
                                     text: "Não foram encontrados registros na base de dados.",
                                     icon: "info",
                                     showConfirmButton: false,
-                                    timer: 2000
+                                    timer: 2000,
                                 });
                             });
                         </script>
@@ -66,23 +66,6 @@
                 {{ $roles->links() }}
             </div>
         </div>
-
-        <!-- Incluir a modal do create.blade.php -->
-        {{--<div class="modal fade" id="customerCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-             aria-labelledby="customerCreateLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header bg-dark bg-gradient">
-                        <h5 class="modal-title text-white text-center" id="customerCreateLabel">Cadastro de nível de acesso</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        @include('modules.role.create')
-                    </div>
-                </div>
-            </div>
-        </div>--}}
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const deleteForms = document.querySelectorAll('.delete-form');

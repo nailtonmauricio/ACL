@@ -12,14 +12,14 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        if (!Role::where('name', 'root')->first()) {
+        if (!Role::where('id', 1)->exists()) {
             Role::create([
                 'name'=> 'root',
                 'order_roles' => 1,
             ]);
         }
 
-        if (!Role::where('name', 'admin')->first()) {
+        if (!Role::where('id', 2)->exists()) {
             $admin = Role::create([
                 'name'=> 'admin',
                 'order_roles' => 2,
@@ -40,7 +40,7 @@ class RoleSeeder extends Seeder
             $admin = Role::where('name', 'admin')->first();
         }
 
-        if (!Role::where('name', 'operator')->first()) {
+        if (!Role::where('id', 3)->exists()) {
             $operator = Role::create([
                 'name'=> 'operator',
                 'order_roles' => 3,

@@ -67,8 +67,10 @@
                             document.addEventListener('DOMContentLoaded', () => {
                                 Swal.fire({
                                     title: "Info!",
-                                    text: "Não foram encontrados registros de clientes.",
-                                    icon: "info"
+                                    text: "Não foram encontrados registros na base de dados.",
+                                    icon: "info",
+                                    showConfirmButton: false,
+                                    timer: 2000,
                                 });
                             });
                         </script>
