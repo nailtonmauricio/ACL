@@ -51,12 +51,4 @@ class User extends Authenticatable implements Auditable
             'password' => 'hashed',
         ];
     }
-
-    /**
-     * @return BelongsToMany
-     */
-    public function roles():BelongsToMany
-    {
-        return $this->belongsToMany(Role::class, 'model_has_roles', 'model_id', 'role_id');
-    }
 }
