@@ -74,7 +74,9 @@
                                 Swal.fire({
                                     title: "Info!",
                                     text: "Nenhuma permissão encontrada...",
-                                    icon: "info"
+                                    icon: "info",
+                                    showConfirmButton: false,
+                                    timer: 2000
                                 });
                             });
                         </script>

@@ -68,9 +68,11 @@
             </div>
             <div class="sb-sidenav-footer p-4">
                 <div class="small">Logged in as:
+                    <span class="text-capitalize">
                     @if(auth()->check())
                         {{ explode(' ', auth()->user()->name)[0] }}
                     @endif
+                    </span>
                 </div>
             </div>
         </nav>

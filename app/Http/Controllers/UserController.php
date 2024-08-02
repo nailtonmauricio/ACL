@@ -116,13 +116,13 @@ class UserController extends Controller
         $authenticatedUser = auth()->user();
 
         // Verifica a permissão do usuário autenticado
-        if ($authenticatedUser->roles[0]->order_roles > $user->roles[0]->order_roles) {
+        if ($authenticatedUser->roles[0]->order_roles >= $user->roles[0]->order_roles) {
             Log::info('Você não tem permissão para acessar esse registro.', [
                 'id' => $user->id,
                 'action_user_id' => Auth::id()
             ]);
 
-            return redirect()->route('user.index', ['user' => $user->id])->with('error', 'Sem permissão de visualizar usuário!');
+            return redirect()->route('user.index', ['user' => $user->id])->with('error', 'Você não tem permissão para editar esse registro.');
         }
 
         // Recupera o nível de acesso do usuário autenticado
@@ -144,7 +144,6 @@ class UserController extends Controller
         ]);
     }
 
-
     /**
      * Update the specified resource in storage.
      */
@@ -159,14 +158,17 @@ class UserController extends Controller
 
             if ($user->name != $validated['name']) {
                 $changes['name'] = $validated['name'];
+                $updated = true;
             }
 
             if ($user->email != $validated['email']) {
                 $changes['email'] = $validated['email'];
+                $updated = true;
             }
 
             if (!empty($validated['password'])) {
                 $changes['password'] = bcrypt($validated['password']);
+                $updated = true;
             }
 
             // Garantindo que $validated['roles'] seja um array
@@ -221,7 +223,6 @@ class UserController extends Controller
             return back()->withInput()->with('error', 'Perfil não editado!');
         }
     }
-
 
     /**
      * Remove the specified resource from storage.
