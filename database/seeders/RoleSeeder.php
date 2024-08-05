@@ -39,26 +39,5 @@ class RoleSeeder extends Seeder
         } else {
             $admin = Role::where('name', 'admin')->first();
         }
-
-        if (!Role::where('id', 3)->exists()) {
-            $operator = Role::create([
-                'name'=> 'Operator',
-                'order_roles' => 3,
-            ]);
-
-            $operator->givePermissionTo([
-                'home-index',
-                'profile-edit',
-                //'role-index',
-                //'role-update',
-                //'user-index',
-                //'user-create',
-                //'user-show',
-                //'user-edit',
-                //'user-destroy',
-            ]);
-        } else {
-            $operator = Role::where('name', 'operator')->first();
-        }
     }
 }
