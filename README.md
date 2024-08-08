@@ -5,6 +5,75 @@
 * Node.js 20 ou superior
 * GIT
 
+# Como executar o projeto a partir do Laravel Sail
+
+## Clonar o projeto para um diretório com nome diferente do repositório:
+```
+git clone --recurse-submodules https://github.com/seu-usuario/meu-projeto.git projeto-renomeado
+cd projeto-renomeado
+```
+
+## Verifique as permissões do diretório do projeto:
+```
+ls -la
+```
+
+## Se necessário, altere o proprietário do diretório para o seu usuário:
+```
+sudo chown -R $USER:$USER /caminho/para/seu/projeto
+```
+## Garanta que seu usuário tenha permissão de escrita no diretório:
+```
+
+sudo chmod -R 755 /caminho/para/seu/projeto
+```
+## Depois de ajustar as permissões, tente novamente rodar o comando do Composer sem usar sudo su:
+```
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php83-composer:latest \
+    composer install --ignore-platform-reqs
+```
+
+## Copie o arquivo .env.exemple
+```
+copy .env.exemple .env
+```
+Corrija as variáveis de ambiente
+
+## Inicie os containers
+```
+./vendor/bin/sail up -d
+```
+
+## Instale as dependencias PHP
+```
+./vendor/bin/sail composer install
+```
+## Instale as dependencias node
+```
+./vendor/bin/sail npm install
+```
+
+## Gere a chave do projeto
+```
+./vendor/bin/sail artisan key:generate
+```
+
+## Execute as migrations e as seeders
+```
+./vendor/bin/sail artisan migrate
+./vendor/bin/sail artisan db:seed
+```
+
+## Em caso se estar em desenvolvimento de novos recursos inicie o vite
+```
+./vendor/bin/sail npm run dev
+```
+
+
 ## Como rodar o projeto baixado
 
 Duplicar o arquivo ".env.example" e renomear para ".env".<br>
