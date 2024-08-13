@@ -24,7 +24,7 @@ git clone --recurse-submodules caminho_projeto novo_nome_projeto
 sudo chown -R $USER:$USER /caminho_do_projeto
 ```
 
-##AJUSTE AS PERMISSÕES DO DIRETÓRIO
+##AJUSTE DAS PERMISSÕES DO DIRETÓRIO
 ```
 sudo chmod -R 755 /caminho_do_projeto
 ```
