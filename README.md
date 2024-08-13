@@ -5,7 +5,7 @@
 * Node.js 20 ou superior
 * GIT
 
-# Como executar o projeto a partir do Laravel Sail
+## Como executar o projeto a partir do Laravel Sail
 
 ## CLONANDO PROJETOS
 
