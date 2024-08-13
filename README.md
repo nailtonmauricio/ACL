@@ -7,7 +7,7 @@
 
 # Como executar o projeto a partir do Laravel Sail
 
-##CLONANDO PROJETOS
+## CLONANDO PROJETOS
 
 * Clone, mantendo nome original do projeto:
 ```
@@ -19,32 +19,32 @@ ou
 ```
 git clone --recurse-submodules caminho_projeto novo_nome_projeto
 ```
-##ALTERAR O PROPIETÁRIO DO DIRETÓRIO DO PROJETO PARA O USUÁRIO HOST
+## ALTERAR O PROPIETÁRIO DO DIRETÓRIO DO PROJETO PARA O USUÁRIO HOST
 ```
 sudo chown -R $USER:$USER /caminho_do_projeto
 ```
 
-##AJUSTE DAS PERMISSÕES DO DIRETÓRIO
+## AJUSTE DAS PERMISSÕES DO DIRETÓRIO
 ```
 sudo chmod -R 755 /caminho_do_projeto
 ```
 
-##ACESSO O DIRETÓRIO DO PROJETO
+## ACESSO O DIRETÓRIO DO PROJETO
 ```
 cd /caminho_do_projeto
 ```
 
-##CRIE O ARQUIVO .env
+## CRIE O ARQUIVO .env
 ```
 cp .env.example .env
 ```
 
-##AJUSTE AS VARIÁVEIS DE AMBIENTE
+## AJUSTE AS VARIÁVEIS DE AMBIENTE
 ```
 nano .env
 ```
 
-##USAR O DOCKER PARA CRIAR OS CONTAINERS
+## USAR O DOCKER PARA CRIAR OS CONTAINERS
 ```
 docker run --rm \
     -u "$(id -u):$(id -g)" \
@@ -54,37 +54,37 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 
-##START NO SAIL
+## START NO SAIL
 ```
 ./vendor/bin/sail up -d
 ```
 
-##REALISAR O UPDATE DOS COMPONENTES
+## REALISAR O UPDATE DOS COMPONENTES
 ```
 ./vendor/bin/sail composer update
 ```
 
-##REALIZAR INSTALAÇÃO DAS DEPENDÊNCIAS JS
+## REALIZAR INSTALAÇÃO DAS DEPENDÊNCIAS JS
 ```
 ./vendor/bin/sail npm install
 ```
 
-##GERAR O KEY DA APLICAÇÃO
+## GERAR O KEY DA APLICAÇÃO
 ```
 ./vendor/bin/sail artisan key:generate
 ```
 
-##RODAR AS MIGRATIONS
+## RODAR AS MIGRATIONS
 ```
 ./vendor/bin/sail artisan migrate
 ```
 
-##RODAR AS SEEDERS
+## RODAR AS SEEDERS
 ```
 ./vendor/bin/sail artisan db:seed
 ```
 
-##PARA DESENVOLVIMENTO, INICIAR O VITE
+## INICIAR O VITE
 ```
 ./vendor/bin/sail npm run dev
 ```
