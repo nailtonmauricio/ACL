@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             $root = User::create([
                 'name' => 'Root',
                 'email' => 'dev@jitte.com.br',
-                'password' => Hash::make('op5mnyuf', ['rounds' => 12]),
+                'password' => Hash::make('dev@jitte', ['rounds' => 12]),
             ]);
 
             $root->assignRole('root');
