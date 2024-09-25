@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RoleRequest;
+use App\Models\ModelHasRole;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -16,7 +17,7 @@ class RoleController extends Controller
     public function index()
     {
         $loggedUserId = auth()->id();
-        $loggedUserRole = Role::where('id', $loggedUserId)->value('order_roles');
+        $loggedUserRole = ModelHasRole::where('model_id', $loggedUserId)->value('role_id');
 
         $roles = Role::where('name', '!=', 'root')
             ->where('id', '!=', $loggedUserId)
