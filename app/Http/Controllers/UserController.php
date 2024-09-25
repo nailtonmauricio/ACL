@@ -72,7 +72,7 @@ class UserController extends Controller
             $user->assignRole($request->roles);
 
             // Salvar log
-            Log::info('Usuário cadastrado.', ['id' => $user->id, $user]);
+            Log::info('Usuário cadastrado.', ['register_by' => auth()->user()->name, 'new_user' => $user]);
 
             // Operação é concluída com êxito
             DB::commit();
