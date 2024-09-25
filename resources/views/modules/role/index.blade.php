@@ -12,7 +12,7 @@
             <div class="card-header hstack gap-2">
                 <span class="ms-auto">
                     @can('user-create')
-                        <a href="{{ route('role.create') }}" class="bg-gradient btn btn-success btn-sm"><i
+                        <a href="{{ route('role.create') }}" class="bg-gradient btn btn-primary btn-sm"><i
                                 class="fa-solid fa-plus"></i></a>
                     @endcan
                 </span>
