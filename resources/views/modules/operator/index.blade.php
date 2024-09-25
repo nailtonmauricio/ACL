@@ -12,7 +12,7 @@
             <div class="card-header hstack gap-2">
                 <span class="ms-auto">
                     @can('user-create')
-                        <a href="{{ route('user.create') }}" class="bg-gradient btn btn-success btn-sm"><i
+                        <a href="{{ route('user.create') }}" class="bg-gradient btn btn-primary btn-sm"><i
                                 class="fa-solid fa-plus"></i></a>
                     @endcan
                 </span>
@@ -45,7 +45,7 @@
                                 @endcan
                                 @can('user-edit')
                                 <a href="{{ route('user.edit', ['user'=>$user->id]) }}"
-                                   class="bg-gradient btn btn-xs btn-dark me-2 mt-1 mt-md-0"><i
+                                   class="bg-gradient btn btn-xs btn-primary me-2 mt-1 mt-md-0"><i
                                         class="fas fa-user-edit"></i></a>
                                 @endcan
                                 @can('user-destroy')
@@ -53,7 +53,7 @@
                                       method="post" class="delete-form">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="bg-gradient btn btn-xs btn-danger me-2 mt-1 mt-md-0"><i
+                                    <button type="submit" class="bg-gradient btn btn-xs btn-primary me-2 mt-1 mt-md-0"><i
                                             class="fas fa-user-minus"></i></button>
                                 </form>
                                 @endcan
