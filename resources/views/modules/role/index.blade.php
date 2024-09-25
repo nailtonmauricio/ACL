@@ -44,7 +44,7 @@
                                    class="bg-gradient btn btn-xs btn-primary me-2 mt-1 mt-md-0"><i
                                         class="fa-solid fa-list-check"></i></a>
                                 <a href="{{ route('role.edit', ['role'=>$role->id]) }}"
-                                   class="bg-gradient btn btn-xs btn-dark me-2 mt-1 mt-md-0"><i
+                                   class="bg-gradient btn btn-xs btn-primary me-2 mt-1 mt-md-0"><i
                                         class="fas fa-user-edit"></i></a>
                             </td>
                         </tr>
